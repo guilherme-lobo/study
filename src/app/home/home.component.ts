@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
-import { RoomService } from './room/room.service';
+import { RoomService } from '../room/room.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { RoomComponent } from './room/room.component';
+import { RoomComponent } from '../room/room.component';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
-export class AppComponent {
+export class HomeComponent {
   public form = false;
   public invite='';
   public name='';
@@ -29,8 +29,10 @@ export class AppComponent {
   wantJoin(){
     this.form = true
     if((<HTMLInputElement>document.getElementById("name")).value && (<HTMLInputElement>document.getElementById("invite")).value){
-      this._router.navigate([RoomComponent])
+      this.roomService.joinRoom((<HTMLInputElement>document.getElementById("name")).value,(<HTMLInputElement>document.getElementById("invite")).value)
+      this._router.navigateByUrl('/room/'+(<HTMLInputElement>document.getElementById("invite")).value+'/'+(<HTMLInputElement>document.getElementById("name")).value)
     } 
     
   }
+
 }

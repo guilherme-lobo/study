@@ -1,0 +1,35 @@
+<router-outlet></router-outlet>
+<div class="bak">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl">
+                <img src="../assets/logo.png">
+            </div>
+        </div>
+
+
+        <form>
+            <div class="form-row">
+                <div class="form-group col-md-7">
+                    <label for="name">Nome:</label>
+                    <input class="form-control" id="name" [value]='name' >
+                </div>
+                <br />
+                <div class="form-group col-md-7" *ngIf="form">
+                    <label for="invite">Convite:</label>
+                    <input class="form-control" id="invite" [value]="invite" placeholder="123456">
+                </div>
+            </div>
+        </form>
+        <br />
+
+        <div class="row">
+            <div class="col-sm">
+                <button type="button"  (click)="createRoom()" class="btn btn-primary">Criar</button>
+            </div>
+            <div class="col-sm">
+                <button type="button" (click)="wantJoin()" class="btn btn-primary">Entrar</button>
+            </div>
+        </div>
+    </div>
+</div>
