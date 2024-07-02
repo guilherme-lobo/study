@@ -9,7 +9,10 @@ import { RoomService } from './room.service';
 })
 export class RoomComponent implements OnInit {
 
-  public name='' ;
+  public name = '';
+  public room: any = {};
+  public users:any = [];
+  public cards: number[] = [1,2,3,4,5,6,7];
 
   constructor(
     private route: ActivatedRoute,
@@ -18,9 +21,16 @@ export class RoomComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params
-    .subscribe((params)=>{
-      this.roomService.joinRoom(params['username'],params['roomName'])
-    })
+      .subscribe( (params) => {
+        this.roomService.joinRoom(params['username'], params['roomName'])
+        .subscribe((res)=>{
+        this.room = res
+        this.users = this.room['usuarios']
+        console.log(this.users)
+        })
+        
+      })
   }
-
 }
+
+

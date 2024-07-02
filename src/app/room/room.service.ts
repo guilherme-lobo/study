@@ -1,5 +1,5 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http'
 
 @Injectable({
   providedIn: 'root'
@@ -19,15 +19,9 @@ export class RoomService {
     return this.httpClient.post(this.url+'/new',body)
   }
 
-  joinRoom(name:any, room:any){
-    const body = {
-      room:room,
-      usuario:{
-        name:name,
-        card:0
-      }
-    }
-    console.log(body)
-    return this.httpClient.post(this.url+'/join',body)
+   joinRoom(name:any, room:any){
+   
+    console.log(this.url)
+    return  this.httpClient.get(this.url+ '/'+name+'/join/'+room)
   }
 }

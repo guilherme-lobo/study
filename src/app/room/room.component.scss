@@ -1,0 +1,11 @@
+.card{
+    border: 3px solid black;
+    height: 8vw;
+    width: 5vw;
+    text-align: center;    
+}
+.card:hover{
+    border: 4px solid blue; 
+    height: 8vw;
+    width: 5vw;
+}
