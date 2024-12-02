@@ -20,8 +20,6 @@ export class RoomService {
   }
 
    joinRoom(name:any, room:any){
-   
-    console.log(this.url)
-    return  this.httpClient.get(this.url+ '/'+name+'/join/'+room)
+    return this.httpClient.get(this.url+ '/'+name+'/join/'+room)
   }
 }

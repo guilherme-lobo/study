@@ -1,19 +1,39 @@
-<p>room works!</p>
 <router-outlet></router-outlet>
 <div class="container">
-<div class="row" >
-    <div class="col-sm" *ngFor="let user of users">
-        <img src="../../assets/user.png">
-        <p>{{user.name}}</p>
+    <div class="containerz">
+        <div class="row">
+            <div class="col-sm" *ngFor="let user of users">
+                <div class="users">
+                    <img src="../../assets/user.png">
+                    <p>{{user.name}}</p>
+                </div>
+                <div class="cards">
+                    <div class="col-sm" *ngFor="let card of cards">
+                        <div *ngIf="visualize == true && card == user.card" class="selected">
+                            <div (click)="pickCard(card,user)"
+                                [ngClass]="{'selected': card === user.card, 'card': card != user.card}">
+                                <p>{{card}}</p>
+                            </div>
+                        </div>
+                        <div *ngIf="visualize == false">
+                        <div *ngIf="user.name == myuser.name">
+                            <div (click)="pickCard(card,user)"
+                                [ngClass]="{'selected': card === user.card, 'card': card != user.card}">
+                                <p>{{card}}</p>
+                            </div>
+                        </div>
+                        <div *ngIf="user.name != myuser.name">
+                            <div class='card'>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
         </div>
-</div>
-<div class="row" >
-    <div class="col-sm" *ngFor="let card of cards">
-        <div class="col-sm">
-        <div class="card">
-            <p>{{card}}</p>
+        <div>
+            <h1 (click)="showUp()">end</h1>
         </div>
-        </div>
-        </div>
-</div>
+    </div>
 </div>

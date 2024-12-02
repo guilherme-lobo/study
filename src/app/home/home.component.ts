@@ -21,8 +21,9 @@ export class HomeComponent {
   createRoom(){
     this.name = (<HTMLInputElement>document.getElementById("name")).value
     this.roomService.createRoom(this.name)
-    .subscribe((res)=>{
-      this._router
+    .subscribe((res:any)=>{
+      this._router.navigateByUrl('/room/'+res[0].name+'/'+(<HTMLInputElement>document.getElementById("name")).value)
+
     })
   }
 

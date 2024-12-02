@@ -1,11 +1,33 @@
+.containerz{
+    display: flex;
+}
 .card{
     border: 3px solid black;
-    height: 8vw;
-    width: 5vw;
+    height: 5vw;
+    width: 3vw;
     text-align: center;    
 }
+.selected{
+    border: 4px solid blue; 
+    height: 5vw;
+    width: 3vw;
+}
+
 .card:hover{
     border: 4px solid blue; 
+    height: 5vw;
+    width: 3vw;
+}
+.users{
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: column-reverse; 
+}
+.users img{    
     height: 8vw;
-    width: 5vw;
+    width: 8vw;
+}
+.cards{
+    display: flex;
 }

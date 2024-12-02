@@ -30,7 +30,7 @@ export class AppComponent {
     this.form = true
     if((<HTMLInputElement>document.getElementById("name")).value && (<HTMLInputElement>document.getElementById("invite")).value){
       this._router.navigate([RoomComponent])
-    } 
-    
+    }  
   }
+  
 }
